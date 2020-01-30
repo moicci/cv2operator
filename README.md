@@ -2,7 +2,7 @@
 
 cv2operator is a simple library to input various shapes like polygon rectangle and so on.
 
-![](docs/polygon-op.png)
+![](https://raw.githubusercontent.com/moicci/cv2operator/master/docs/polygon-op.png)
 
 ## Features
 

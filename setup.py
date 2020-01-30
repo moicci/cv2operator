@@ -6,7 +6,7 @@ long_description = pathlib.Path(__file__).parent.joinpath("README.md").read_text
 setup(
     name="cv2operator",
     packages=["cv2operator"],
-    version="1.0.0",
+    version="1.0.1",
     license="MIT",
     author="fukuda, minoru",
     url="https://github.com/moicci/cv2operator",
