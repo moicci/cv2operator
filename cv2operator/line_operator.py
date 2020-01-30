@@ -30,7 +30,7 @@ class LineOperator(DragOperator):
         if w < 1 or h < 1:
             return None
 
-        with self.draw() as image:
+        with self.window.draw() as image:
             cv2.line(image, p1, p2, self.color, self.thickness)
 
         return p1, p2

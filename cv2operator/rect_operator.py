@@ -34,7 +34,7 @@ class RectOperator(DragOperator):
 
         bbox = (x, y, w, h)
 
-        with self.draw() as image:
+        with self.window.draw() as image:
             p1 = (x, y)
             p2 = (x + w, y + h)
             cv2.rectangle(image, p1, p2, self.color, self.thickness)

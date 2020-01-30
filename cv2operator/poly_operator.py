@@ -28,7 +28,7 @@ class _PolyOperator(MouseOperator):
             self._update_shape((x, y))
 
     def _update_shape(self, hover_point):
-        with self.draw() as image:
+        with self.window.draw() as image:
 
             if len(self._points) > 0:
                 points = self._make_points(self._points, hover_point)

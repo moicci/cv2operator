@@ -1,7 +1,8 @@
+#!/usr/bin/env python
 import cv2
 import numpy as np
 
-from cv2operator import KeyOperator, OperartorWindow
+from cv2operator import KeyOperator, OperatorWindow
 from cv2operator import LineOperator, RectOperator, PolylineOperator, PolygonOperator, BrushOperator
 
 def line_cb(p1, p2):
@@ -13,7 +14,7 @@ def rect_cb(x, y, w, h):
 active_op = None
 
 original_image = cv2.imread("goru.jpg")
-window = OperartorWindow("demo", original_image)
+window = OperatorWindow("demo", original_image)
 
 def activate(mouse_op):
     global active_op
@@ -21,8 +22,12 @@ def activate(mouse_op):
 
     text = mouse_op.__class__.__name__
     cv2.putText(image, text, (10,40), cv2.FONT_HERSHEY_TRIPLEX, 1, (0, 0xff, 0xff))
+
+    # draw image with text
     window.update(image)
-    window.save_current_image()
+
+    # save image as original
+    window.save_image()
 
     mouse_op.activate()
     active_op = mouse_op

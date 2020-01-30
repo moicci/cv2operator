@@ -12,9 +12,9 @@ class BrushOperator(MouseOperator):
     # @param brush_size     int     brush size [px]
     # @param mask_fg_color  uint8   foreground color for mask
     # @param mask_bg_color  uint8   background color for mask
-    # @param thickness thickness of line
+    # @param callback       fn(mask_image)
     def __init__(self, window, brush_color=(0, 0xff, 0), brush_size=2, 
-                                    mask_fg_color=0xff, mask_bg_color=0):
+                                    mask_fg_color=0xff, mask_bg_color=0, callback=None):
         super().__init__(window)
         self.brush_color = brush_color
         self.brush_size = brush_size
@@ -23,6 +23,7 @@ class BrushOperator(MouseOperator):
         self._dragging = False
         self._mask_image = None
         self._drawing_image = None
+        self._callback = callback
         self.reset_mask()
 
     @property
@@ -51,6 +52,8 @@ class BrushOperator(MouseOperator):
 
         elif event == cv2.EVENT_LBUTTONUP:
             self._dragging = False
+            if self._callback:
+                self._callback(self._mask_image)
 
     def _paint(self, x, y):
         if self._drawing_image is None:
