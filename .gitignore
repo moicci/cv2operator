@@ -1,0 +1,4 @@
+__pycache__
+build
+dist
+cv2operator.egg-info
